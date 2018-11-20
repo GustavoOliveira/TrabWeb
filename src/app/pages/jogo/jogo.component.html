@@ -1,0 +1,51 @@
+<section id="banner">
+    <h1>Cadastro de Jogos</h1>
+    <p>FutAPP</p>
+  </section>
+<section id="one" class="wrapper">
+  <div class="inner">
+    <h4>Cadastro de Jogos</h4>
+    <div class="table-wrapper">
+      <form [formGroup]="formulario" novalidate>
+        <div class="row uniform">
+
+          <div class="6u 12u$(xsmall)">
+            <label for="">Time da Casa</label>
+            <input type="text" placeholder="Time da Casa" formControlName="time_casa" />
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+              <label for="">Time de Fora</label>
+              <input type="text" placeholder="Time de Fora" formControlName="time_fora" />
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+              <label for="">Gol do Time da Casa</label>
+              <input type="text" placeholder="Gol do Time da Casa" formControlName="gol_tm_casa" />
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+              <label for="">Gol do Time de Fora</label>
+              <input type="text" placeholder="Gol do Time de Fora" formControlName="gol_tm_fora" />
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+              <label for="">Campeonato</label>
+              <input type="text" placeholder="Campeonato" formControlName="campeonato" />
+          </div>
+
+          <div class="12u$">
+            <ul class="actions">
+              <li>
+                <input type="button" value="Salvar" (click)="salvar(formulario)" [disabled]="!formulario.valid" />
+              </li>
+              <li>
+                <input type="reset" value="Limpar" class="alt" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

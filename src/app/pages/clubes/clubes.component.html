@@ -1,0 +1,39 @@
+<section id="banner">
+  <h1>Lista de Clubes</h1>
+  <p>FutAPP</p>
+</section>
+<section id="one" class="wrapper">
+  <div class="inner">
+    <h4>Lista de Clubes</h4>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Criação</th>
+            <th>Pontuação</th>
+            <th>Campeonato</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clube of listaClubes">
+            <td>{{clube.id}}</td>
+            <td>{{clube.nome}}</td>
+            <td>{{clube.criacao}}</td>
+            <td>{{clube.pontuacao}}</td>
+            <td>{{clube.campeonato}}</td>
+            <td>
+              <button (click)='excluir(clube.id)'>Excluir</button>
+              <button [routerLink]="['/clube',clube.id]">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <h3>
+    <a routerLink="/clube/0"> Novo Registro</a>
+  </h3>
+</section>

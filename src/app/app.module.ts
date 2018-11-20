@@ -20,6 +20,18 @@ import { OrganizadorService } from './services/organizador.service';
 import { CampeonatosComponent } from './pages/campeonatos/campeonatos.component';
 import { CampeonatoComponent } from './pages/campeonato/campeonato.component';
 import { CampeonatoService } from './services/campeonato.service';
+//Clube
+import { ClubesComponent } from './pages/clubes/clubes.component';
+import { ClubeComponent } from './pages/clube/clube.component';
+import { ClubeService } from './services/clube.service';
+//jogador
+import { JogadoresComponent } from './pages/jogadores/jogadores.component';
+import { JogadorComponent } from './pages/jogador/jogador.component';
+import { JogadorService } from './services/jogador.service';
+//jogo
+import { JogosComponent } from './pages/jogos/jogos.component';
+import { JogoComponent } from './pages/jogo/jogo.component';
+import { JogoService } from './services/jogo.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +44,13 @@ import { CampeonatoService } from './services/campeonato.service';
     OrganizadorComponent,
     OrganizadoresComponent,
     CampeonatosComponent,
-    CampeonatoComponent
+    CampeonatoComponent,
+    ClubesComponent,
+    ClubeComponent,
+    JogadoresComponent,
+    JogadorComponent,
+    JogosComponent,
+    JogoComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +59,7 @@ import { CampeonatoService } from './services/campeonato.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [OrganizadorService, CampeonatoService],
+  providers: [OrganizadorService, CampeonatoService, ClubeService, JogadorService, JogoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

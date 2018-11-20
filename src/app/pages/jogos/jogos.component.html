@@ -1,0 +1,41 @@
+<section id="banner">
+  <h1>Lista de Jogos</h1>
+  <p>FutAPP</p>
+</section>
+<section id="one" class="wrapper">
+  <div class="inner">
+    <h4>Lista de Jogos</h4>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Time da Casa</th>
+            <th>Time de Fora</th>
+            <th>Gol do Time da Case</th>
+            <th>Gol do Time de fora</th>
+            <th>Campeonato</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let jogo of listaJogos">
+            <td>{{jogo.id}}</td>
+            <td>{{jogo.time_casa}}</td>
+            <td>{{jogo.time_fora}}</td>
+            <td>{{jogo.gol_tm_casa}}</td>
+            <td>{{jogo.gol_tm_fora}}</td>
+            <td>{{jogo.campeonato}}</td>
+            <td>
+              <button (click)='excluir(jogo.id)'>Excluir</button>
+              <button [routerLink]="['/jogo',jogo.id]">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <h3>
+    <a routerLink="/jogo/0"> Novo Registro</a>
+  </h3>
+</section>
