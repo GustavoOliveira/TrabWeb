@@ -1,0 +1,40 @@
+<section id="banner">
+    <h1>Cadastro de Campeonatos</h1>
+    <p>FutAPP</p>
+  </section>
+<section id="one" class="wrapper">
+  <div class="inner">
+    <h4>Cadastro de Campeonatos</h4>
+    <div class="table-wrapper">
+      <form [formGroup]="formulario" novalidate>
+        <div class="row uniform">
+
+          <div class="6u 12u$(xsmall)">
+            <label for="">Nome</label>
+            <input type="text" placeholder="Nome" formControlName="nome" />
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+            <label for="">Numero de Times</label>
+            <input type="text" placeholder="Numero de Times" formControlName="numero_times" />
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+              <label for="">Organizador</label>
+              <input type="text" placeholder="Organizador" formControlName="organizador" />
+          </div>
+          <div class="12u$">
+            <ul class="actions">
+              <li>
+                <input type="button" value="Salvar" (click)="salvar(formulario)" [disabled]="!formulario.valid" />
+              </li>
+              <li>
+                <input type="reset" value="Limpar" class="alt" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

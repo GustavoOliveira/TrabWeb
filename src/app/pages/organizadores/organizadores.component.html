@@ -1,0 +1,39 @@
+<section id="banner">
+  <h1>Lista de Organizadores</h1>
+  <p>FutAPP</p>
+</section>
+<section id="one" class="wrapper">
+  <div class="inner">
+    <h4>Lista de Organizadores</h4>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sede</th>
+            <th>Presidente</th>
+            <th>Ano de Fundação</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let organizador of listaOrganizadores">
+            <td>{{organizador.id}}</td>
+            <td>{{organizador.nome}}</td>
+            <td>{{organizador.sede}}</td>
+            <td>{{organizador.presidente}}</td>
+            <td>{{organizador.fundacao}}</td>
+            <td>
+              <button (click)='excluir(organizador.id)'>Excluir</button>
+              <button [routerLink]="['/organizador',organizador.id]">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <h3>
+    <a routerLink="/organizador/0"> Novo Registro</a>
+  </h3>
+</section>

@@ -1,0 +1,33 @@
+<section id="banner">
+  <h1>Lista de Estrelas Próximas a Terra</h1>
+  <p>Criado pela CC da IMED.</p>
+</section>
+<section id="one" class="wrapper">
+  <div class="inner">
+    <h4>Cadastro de Estrelas</h4>
+    <div class="table-wrapper">
+      <form [formGroup]="formulario" novalidate>
+        <div class="row uniform">
+          <div class="6u 12u$(xsmall)">
+            <label for="">Nome da Estrela</label>
+            <input type="text" placeholder="Nome" formControlName="nome" />
+          </div>
+          <div class="6u 12u$(xsmall)">
+            <label for="">Distância em relação a terra</label>
+            <input type="text" placeholder="Distancia" formControlName="distancia" />
+          </div>
+          <div class="12u$">
+            <ul class="actions">
+              <li>
+                <input type="button" value="Salvar" (click)="salvar(formulario)" [disabled]="!formulario.valid" />
+              </li>
+              <li>
+                <input type="reset" value="Limpar" class="alt" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

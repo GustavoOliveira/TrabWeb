@@ -1,0 +1,5 @@
+
+<Web-header *ngIf="!_router.url.includes('login')"></Web-header>
+<Web-menu *ngIf="!_router.url.includes('login')"></Web-menu> 
+<router-outlet></router-outlet>
+<Web-footer *ngIf="!_router.url.includes('login')"></Web-footer>

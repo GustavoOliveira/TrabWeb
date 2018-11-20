@@ -1,0 +1,128 @@
+{
+  "estrelas": [
+    {
+      "id": 2,
+      "nome": "Barnard.",
+      "distancia": "5,9 anos/luz"
+    },
+    {
+      "nome": "Nico Land",
+      "distancia": "5 pontos",
+      "id": 3
+    },
+    {
+      "nome": "Bruno",
+      "distancia": "78787",
+      "id": 6
+    }
+  ],
+  "planetas": [
+    {
+      "id": 2,
+      "nome": "Mercúrio",
+      "diametro": "4.880",
+      "distancia": "57 910 000",
+      "massa": "0,1"
+    },
+    {
+      "id": 3,
+      "nome": "Vênus",
+      "diametro": "12.104",
+      "distancia": "108 208 930",
+      "massa": "0,9"
+    },
+    {
+      "id": 4,
+      "nome": "Terra",
+      "diametro": " 12.756",
+      "distancia": "149 597 870",
+      "massa": "1"
+    },
+    {
+      "id": 5,
+      "nome": "Marte",
+      "diametro": "6.794",
+      "distancia": "227 936 640",
+      "massa": "0,1"
+    },
+    {
+      "id": 6,
+      "nome": "Júpiter",
+      "diametro": "142.984",
+      "distancia": "778 412 010",
+      "massa": "318"
+    },
+    {
+      "nome": "Saturno hehe",
+      "diametro": "120.999",
+      "distancia": "1 426 725 999",
+      "massa": "999999",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "nome": "Urano",
+      "diametro": "51.118",
+      "distancia": " 2 870 972 200",
+      "massa": "15"
+    },
+    {
+      "id": 9,
+      "nome": "Netuno",
+      "diametro": "49.572",
+      "distancia": "2 870 972 200",
+      "massa": "17"
+    }
+  ],
+  "organizador": [
+    {
+      "nome": "FIFA ",
+      "sede": "Zurique, Suíça",
+      "presidente": "Gianni Infantino",
+      "fundacao": "1909-05-08",
+      "id": 1
+    }
+  ],
+  "campeonato": [
+    {
+      "nome": "Mundial de Clubes",
+      "numero_times": "7",
+      "organizador": "1",
+      "id": 1
+    },
+    {
+      "nome": "Campeonato Brasileiro",
+      "numero_times": "20",
+      "organizador": "2",
+      "id": 2
+    }
+  ],
+  "clube": [
+    {
+      "id": 1,
+      "nome": "Real Madrid",
+      "criacao": "1909-05-09",
+      "pontuacao": "10",
+      "campeonato": "1"
+    }
+  ],
+  "jogador": [
+    {
+      "id": 1,
+      "nome": "Marcelo",
+      "idade": "32",
+      "clube": "1",
+      "peso": "75.20"
+    }
+  ],
+  "jogo": [
+    {
+      "id": 1,
+      "time_casa": "1",
+      "time_fora": "1",
+      "gol_tm_casa": "1",
+      "gol_tm_fora": "1",
+      "campeonato": "1"
+    }
+  ]
+}

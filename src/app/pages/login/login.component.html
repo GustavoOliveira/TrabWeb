@@ -1,0 +1,19 @@
+<div class="full-width-div">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <div class="container">
+    <div class="card card-container">
+      <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+      <p id="profile-name" class="profile-name-card"></p>
+
+      <form class="form-signin" [formGroup]="formulario" novalidate>
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="email" id="edtNome" formControlName="nome" class="form-control" placeholder="Nome" required autofocus>
+        <input type="email" id="edtEmail" formControlName="email" class="form-control" placeholder="Email" required>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="salvar(formulario)" [disabled]="!formulario.valid">Entrar</button>
+      </form>
+
+    </div>
+  </div>
+</div>
