@@ -1,3 +1,33 @@
-<p>
-  contato works!
-</p>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+
+<section id="banner">
+  <h1>Contato</h1>
+  <p>FutAPP</p>
+</section>
+<section id="one" class="wrapper">
+  <div class="inner">
+    <div class="table-wrapper">
+
+      <div class="container">
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1757.0485248086018!2d-52.397812817738725!3d-28.265073930342375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e2bf84ee0c1585%3A0x673104b6b4fb5088!2sIMED+Campus+Passo+Fundo!5e0!3m2!1spt-BR!2sbr!4v1542892332115" width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        <div class="contact-form">
+          <h1 class="title">Entre em contato</h1>
+          <form [formGroup]="formulario" novalidate>
+            <input type="text" name="name" formControlName="nome" placeholder="Nome" />
+            <input type="email" name="e-mail" formControlName="email" placeholder="Email" />
+            <input type="tel" name="phone" formControlName="telefone" placeholder="Telefone"/>
+            <textarea name="text" id="" rows="8" formControlName="mensagem" placeholder="Mensagem"></textarea>
+            <button class="btn-send" (click)="salvar(formulario)" [disabled]="!formulario.valid">Enviar</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

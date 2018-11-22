@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JogadorService } from '../../services/jogador.service'
+import { FilterPipe }from '../../filter.pipe';
 
 @Component({
   selector: 'app-jogador',
@@ -7,7 +8,10 @@ import { JogadorService } from '../../services/jogador.service'
   styleUrls: ['./jogadores.component.css']
 })
 export class JogadoresComponent implements OnInit {
+  name = 'Angular';
+  query:string = '';
   listaJogadores: any[] = []
+  public loading = false;
   constructor(private jogadorService: JogadorService) { }
  
   ngOnInit() {
@@ -22,9 +26,11 @@ export class JogadoresComponent implements OnInit {
     )
   }
   getList() {
+    this.loading = true;
     this.jogadorService.getList().subscribe(
       retorno => {
         this.listaJogadores = retorno
+        this.loading = false;
       }
     )
 

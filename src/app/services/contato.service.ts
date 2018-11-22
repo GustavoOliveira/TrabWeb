@@ -6,28 +6,28 @@ import { Injectable } from '@angular/core';
 import { Headers } from '@angular/http'
 
 @Injectable()
-export class OrganizadorService {
-    private url: string = `http://localhost:3000/organizador`;
+export class ContatoService {
+    private url: string = `http://localhost:3000/contato`;
     constructor(private http: Http) {
     }
     errorHandler(error: any): void {
         console.log(error)
     }
-    save(organizador: any): Observable<any> {
+    save(contato: any): Observable<any> {
         var cabecalho = new Headers();
         cabecalho.append('Content-Type', 'application/json');
         return this.http
-            .post(this.url, JSON.stringify(organizador), { headers: cabecalho })
+            .post(this.url, JSON.stringify(contato), { headers: cabecalho })
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }
 
-    update(id: number, organizador: any): Observable<any> {
+    update(id: number, contato: any): Observable<any> {
         var cabecalho = new Headers();
         cabecalho.append('Content-Type', 'application/json');
         return this.http
             .put(this.url + "/" + id,
-                JSON.stringify(organizador), { headers: cabecalho })
+                JSON.stringify(contato), { headers: cabecalho })
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }
@@ -51,4 +51,5 @@ export class OrganizadorService {
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }
+
 }

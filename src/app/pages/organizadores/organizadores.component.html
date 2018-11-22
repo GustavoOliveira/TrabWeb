@@ -5,7 +5,23 @@
 <section id="one" class="wrapper">
   <div class="inner">
     <h4>Lista de Organizadores</h4>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Pesquisa</span>
+      </div>
+      <input [(ngModel)]="searchText" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+
     <div class="table-wrapper">
+      
+        <ng-template #customLoadingTemplate>
+            <h3>
+              Carregando...
+            </h3>
+          </ng-template>
+          <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+      
       <table>
         <thead>
           <tr>
@@ -18,7 +34,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let organizador of listaOrganizadores">
+          <tr *ngFor="let organizador of listaOrganizadores | filter : searchText">
             <td>{{organizador.id}}</td>
             <td>{{organizador.nome}}</td>
             <td>{{organizador.sede}}</td>
@@ -31,9 +47,7 @@
           </tr>
         </tbody>
       </table>
+      <button [routerLink]="['/organizador/0']">Novo Registro</button>
     </div>
   </div>
-  <h3>
-    <a routerLink="/organizador/0"> Novo Registro</a>
-  </h3>
 </section>

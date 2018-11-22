@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganizadorService } from '../../services/organizador.service'
+import { FilterPipe }from '../../filter.pipe';
+
 
 @Component({
   selector: 'Web-organizadores',
   templateUrl: './organizadores.component.html',
   styleUrls: ['./organizadores.component.css']
 })
+
 export class OrganizadoresComponent implements OnInit {
+  name = 'Angular';
+  query:string = '';
   listaOrganizadores: any[] = []
+  public loading = false;
+
   constructor(private organizadorService: OrganizadorService) { }
- 
+
   ngOnInit() {
     this.getList()
   }
@@ -22,9 +29,11 @@ export class OrganizadoresComponent implements OnInit {
     )
   }
   getList() {
+    this.loading = true;
     this.organizadorService.getList().subscribe(
       retorno => {
         this.listaOrganizadores = retorno
+        this.loading = false;
       }
     )
 
@@ -37,6 +46,7 @@ export class OrganizadoresComponent implements OnInit {
         }
         return 0;
       }
+
     }
   }
 }

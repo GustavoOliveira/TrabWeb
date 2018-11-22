@@ -32,6 +32,11 @@ import { JogadorService } from './services/jogador.service';
 import { JogosComponent } from './pages/jogos/jogos.component';
 import { JogoComponent } from './pages/jogo/jogo.component';
 import { JogoService } from './services/jogo.service';
+
+import { FilterPipe, FilterPipeJogo} from './filter.pipe';
+import { ContatoService } from './services/contato.service';
+import { NgxLoadingModule } from 'ngx-loading';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,16 +55,20 @@ import { JogoService } from './services/jogo.service';
     JogadoresComponent,
     JogadorComponent,
     JogosComponent,
-    JogoComponent
+    JogoComponent,
+    FilterPipe,
+    FilterPipeJogo 
   ],
   imports: [
     BrowserModule,
     WebRoutingModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxLoadingModule.forRoot({})
   ],
-  providers: [OrganizadorService, CampeonatoService, ClubeService, JogadorService, JogoService],
+  providers: [OrganizadorService, CampeonatoService, ClubeService, JogadorService, JogoService,ContatoService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

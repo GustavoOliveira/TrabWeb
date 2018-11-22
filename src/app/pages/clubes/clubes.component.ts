@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClubeService } from '../../services/clube.service'
+import { FilterPipe }from '../../filter.pipe';
 
 @Component({
   selector: 'app-clubes',
@@ -7,7 +8,10 @@ import { ClubeService } from '../../services/clube.service'
   styleUrls: ['./clubes.component.css']
 })
 export class ClubesComponent implements OnInit {
+  name = 'Angular';
+  query:string = '';
   listaClubes: any[] = []
+  public loading = false;
   constructor(private clubeService: ClubeService) { }
  
   ngOnInit() {
@@ -15,6 +19,7 @@ export class ClubesComponent implements OnInit {
   }
 
   excluir(id: number) {
+    
     this.clubeService.delete(id).subscribe(
       retorno => {
         this.getList()
@@ -22,9 +27,11 @@ export class ClubesComponent implements OnInit {
     )
   }
   getList() {
+    this.loading = true;
     this.clubeService.getList().subscribe(
       retorno => {
         this.listaClubes = retorno
+        this.loading = false;
       }
     )
 

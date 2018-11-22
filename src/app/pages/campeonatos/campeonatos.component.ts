@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CampeonatoService } from '../../services/campeonato.service'
+import { FilterPipe }from '../../filter.pipe';
 
 @Component({
   selector: 'app-campeonatos',
@@ -7,7 +8,10 @@ import { CampeonatoService } from '../../services/campeonato.service'
   styleUrls: ['./campeonatos.component.css']
 })
 export class CampeonatosComponent implements OnInit {
+  name = 'Angular';
+  query:string = '';
   listaCampeonatos: any[] = []
+  public loading = false;
   constructor(private campeonatoService: CampeonatoService) { }
  
   ngOnInit() {
@@ -22,9 +26,11 @@ export class CampeonatosComponent implements OnInit {
     )
   }
   getList() {
+    this.loading = true;
     this.campeonatoService.getList().subscribe(
       retorno => {
         this.listaCampeonatos = retorno
+        this.loading = false;
       }
     )
 
