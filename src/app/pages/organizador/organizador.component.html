@@ -1,7 +1,7 @@
 <section id="banner">
-    <h1>Lista de Organizadores</h1>
-    <p>FutAPP</p>
-  </section>
+  <h1>Lista de Organizadores</h1>
+  <p>FutAPP</p>
+</section>
 <section id="one" class="wrapper">
   <div class="inner">
     <h4>Cadastro de Organizadores</h4>
@@ -20,14 +20,19 @@
           </div>
 
           <div class="6u 12u$(xsmall)">
-              <label for="">Presidente</label>
-              <input type="text" placeholder="Presidente" formControlName="presidente" />
+            <label for="">Presidente</label>
+            <input type="text" placeholder="Presidente" formControlName="presidente" />
           </div>
 
           <div class="6u 12u$(xsmall)">
-              <label for="">Data de Fundação</label>
-              <input type="date" placeholder="Fundação" formControlName="fundacao" />
-            </div>
+            <label for="">Data de Fundação</label>
+            <input type="date" placeholder="Fundação" formControlName="fundacao" />
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+            <label for="">Logo</label>
+            <input type="file" placeholder="Logo" formControlName="imagem" (change)="handleFileInput($event.target.files)" />
+          </div>
 
           <div class="12u$">
             <ul class="actions">

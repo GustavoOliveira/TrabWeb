@@ -29,6 +29,17 @@
             <input type="text" placeholder="Campeonato" formControlName="campeonato" />
           </div>
 
+          <div class="6u 12u$(xsmall)">
+            <label for="">Escudo</label>
+            <input type="file" placeholder="Escudo" formControlName="escudo" (change)="handleFileInput($event.target.files)"/>
+          </div>
+
+          <div class="6u 12u$(xsmall)">
+            <label for="">Hino</label>
+            <input type="file" placeholder="Hino" formControlName="hino" (change)="handleFileInput2($event.target.files)"/>
+          </div>
+
+          
         <div class="12u$">
           <ul class="actions">
             <li>

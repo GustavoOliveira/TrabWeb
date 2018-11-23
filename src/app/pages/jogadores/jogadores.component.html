@@ -18,19 +18,22 @@
         <thead>
           <tr>
             <th>Id</th>
+            <th>Foto</th>
             <th>Nome</th>
             <th>Idade</th>
             <th>Peso</th>
             <th>Clube</th>
-            <th>Opções</th>
+            <th>        Opções</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let jogador of listaJogadores | filter : searchText">
             <td>{{jogador.id}}</td>
+            <td><img src={{jogador.foto}} alt={{jogador.foto}} class="tamanho img-thumbnail"></td>
             <td>{{jogador.nome}}</td>
             <td>{{jogador.idade}}</td>
-            <td>{{jogador.clube}}</td>
+            <td>{{jogador.peso}}</td>
+            <td>{{jogador.time}}</td>
             <td>{{jogador.fundacao}}</td>
             <td>
               <button (click)='excluir(jogador.id)'>Excluir</button>

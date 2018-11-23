@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { LoginService } from '../../services/login.service'
 
 @Component({
   selector: 'app-login',
@@ -8,12 +9,14 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  login : any
+  login: any
+  log: any
   formulario: FormGroup
   public router: Router
   constructor(
     router: Router,
     private formBuilder: FormBuilder,
+    private loginService: LoginService,
     private route: ActivatedRoute,
   ) {
     this.router = router;
@@ -31,6 +34,13 @@ export class LoginComponent implements OnInit {
 
   salvar(formulario: FormGroup) {
     let login = { 'nome': formulario.value.nome, 'email': formulario.value.email, 'login': formulario.value.login, 'senha': formulario.value.senha }
+    let log = { 'username': formulario.value.login, 'password': formulario.value.senha }
+    this.loginService.logar(log)
+      .subscribe(retorno => {
+        sessionStorage.setItem('token','JWT ' + retorno.token)
+      }, err => {
+        console.log("Erro ao Salvar Dados")
+      })
     sessionStorage.setItem('nome', login.nome)
     sessionStorage.setItem('email', login.email)
     sessionStorage.setItem('login', login.login)

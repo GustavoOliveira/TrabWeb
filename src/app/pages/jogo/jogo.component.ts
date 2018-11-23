@@ -29,6 +29,7 @@ export class JogoComponent implements OnInit {
       gol_tm_casa: this.formBuilder.control('', [Validators.required, Validators.minLength(1)]),
       gol_tm_fora: this.formBuilder.control('', [Validators.required, Validators.minLength(1)]),
       campeonato: this.formBuilder.control('', [Validators.required, Validators.minLength(1)]),
+      data: this.formBuilder.control('', [Validators.required, Validators.minLength(1)]),      
     })
 
     this.route.params.subscribe(paramsId => {
@@ -48,12 +49,14 @@ export class JogoComponent implements OnInit {
         this.formulario.controls['gol_tm_casa'].setValue(this.jogo.gol_tm_casa);
         this.formulario.controls['gol_tm_fora'].setValue(this.jogo.gol_tm_fora);
         this.formulario.controls['campeonato'].setValue(this.jogo.campeonato);
+        this.formulario.controls['data'].setValue(this.jogo.data);
       }, err => {
         console.log("Erro ao Pegar Dados")
       })
   }
   salvar(formulario: FormGroup) {
-    let jogo = { 'time_casa': formulario.value.time_casa, 'time_fora': formulario.value.time_fora,'gol_tm_casa': formulario.value.gol_tm_casa, 'gol_tm_fora': formulario.value.gol_tm_fora, 'campeonato': formulario.value.campeonato}
+    let jogo = { 'time_casa': formulario.value.time_casa, 'time_fora': formulario.value.time_fora,'gol_tm_casa': formulario.value.gol_tm_casa, 
+    'gol_tm_fora': formulario.value.gol_tm_fora, 'campeonato': formulario.value.campeonato, 'data': formulario.value.data}
     if (formulario.value.id == 0) {
       this.jogoService.save(jogo)
         .subscribe(retorno => {

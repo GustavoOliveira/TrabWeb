@@ -36,6 +36,7 @@ import { JogoService } from './services/jogo.service';
 import { FilterPipe, FilterPipeJogo} from './filter.pipe';
 import { ContatoService } from './services/contato.service';
 import { NgxLoadingModule } from 'ngx-loading';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     ReactiveFormsModule,
     NgxLoadingModule.forRoot({})
   ],
-  providers: [OrganizadorService, CampeonatoService, ClubeService, JogadorService, JogoService,ContatoService],
+  providers: [OrganizadorService, CampeonatoService, ClubeService, JogadorService, JogoService,ContatoService,LoginService],
 
   bootstrap: [AppComponent]
 })

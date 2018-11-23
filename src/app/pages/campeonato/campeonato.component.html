@@ -23,6 +23,17 @@
               <label for="">Organizador</label>
               <input type="text" placeholder="Organizador" formControlName="organizador" />
           </div>
+
+          <div class="6u 12u$(xsmall)">
+              <label for="">Imagem</label>
+              <input type="file" placeholder="Imagem" formControlName="imagem" (change)="handleFileInput($event.target.files)"/>
+            </div>
+  
+            <div class="6u 12u$(xsmall)">
+              <label for="">Regulamento</label>
+              <input type="file" placeholder="Regulamento" formControlName="regulamento" (change)="handleFileInput2($event.target.files)"/>
+            </div>
+
           <div class="12u$">
             <ul class="actions">
               <li>

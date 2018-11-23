@@ -7,7 +7,8 @@ import { Headers } from '@angular/http'
 
 @Injectable()
 export class CampeonatoService {
-    private url: string = `http://localhost:3000/campeonato`;
+    token = sessionStorage.getItem('token')
+    private url: string = `http://127.0.0.1:8000/campeonato/`;
     constructor(private http: Http) {
     }
     errorHandler(error: any): void {
@@ -15,39 +16,47 @@ export class CampeonatoService {
     }
     save(campeonato: any): Observable<any> {
         var cabecalho = new Headers();
-        cabecalho.append('Content-Type', 'application/json');
+        cabecalho.append('Authorization',this.token);
+        cabecalho.set('Accept', 'application/json');
         return this.http
-            .post(this.url, JSON.stringify(campeonato), { headers: cabecalho })
+            .post(this.url, campeonato, { headers: cabecalho , method: 'POST'})
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }
 
     update(id: number, campeonato: any): Observable<any> {
         var cabecalho = new Headers();
-        cabecalho.append('Content-Type', 'application/json');
+        cabecalho.append('Authorization',this.token);
+        cabecalho.set('Accept', 'application/json');
         return this.http
-            .put(this.url + "/" + id,
-                JSON.stringify(campeonato), { headers: cabecalho })
+            .put(this.url + "" + id,
+            campeonato, { headers: cabecalho , method: 'PUT'})
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }
 
     getList(): Observable<any> {
+        var cabecalho = new Headers();
+        cabecalho.append('Authorization',this.token);
         return this.http
-            .get(this.url)
+            .get(this.url, { headers: cabecalho })
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }
     get(id: number): Observable<any> {
+        var cabecalho = new Headers();
+        cabecalho.append('Authorization',this.token);
         return this.http
-            .get(this.url + "/" + id)
+            .get(this.url + "" + id, { headers: cabecalho })
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }
 
     delete(id: number): Observable<any> {
+        var cabecalho = new Headers();
+        cabecalho.append('Authorization',this.token);
         return this.http
-            .delete(this.url + "/" + id)
+            .delete(this.url + "" + id, { headers: cabecalho })
             .map(response => response.json())
             .catch((error: any) => Observable.throw(this.errorHandler(error)))
     }

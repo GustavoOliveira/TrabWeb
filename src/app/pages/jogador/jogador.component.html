@@ -3,44 +3,49 @@
   <p>FutAPP</p>
 </section>
 <section id="one" class="wrapper">
-<div class="inner">
-  <h4>Cadastro de Jogadores</h4>
-  <div class="table-wrapper">
-    <form [formGroup]="formulario" novalidate>
-      <div class="row uniform">
+  <div class="inner">
+    <h4>Cadastro de Jogadores</h4>
+    <div class="table-wrapper">
+      <form [formGroup]="formulario" novalidate>
+        <div class="row uniform">
 
-        <div class="6u 12u$(xsmall)">
-          <label for="">Nome</label>
-          <input type="text" placeholder="Nome" formControlName="nome" />
-        </div>
+          <div class="6u 12u$(xsmall)">
+            <label for="">Nome</label>
+            <input type="text" placeholder="Nome" formControlName="nome" />
+          </div>
 
-        <div class="6u 12u$(xsmall)">
-          <label for="">Idade</label>
-          <input type="text" placeholder="Idade" formControlName="idade" />
-        </div>
+          <div class="6u 12u$(xsmall)">
+            <label for="">Idade</label>
+            <input type="text" placeholder="Idade" formControlName="idade" />
+          </div>
 
-        <div class="6u 12u$(xsmall)">
+          <div class="6u 12u$(xsmall)">
             <label for="">Peso</label>
             <input type="text" placeholder="Peso" formControlName="peso" />
-        </div>
+          </div>
 
-        <div class="6u 12u$(xsmall)">
+          <div class="6u 12u$(xsmall)">
             <label for="">Clube</label>
             <input type="text" placeholder="Clube" formControlName="clube" />
           </div>
 
-        <div class="12u$">
-          <ul class="actions">
-            <li>
-              <input type="button" value="Salvar" (click)="salvar(formulario)" [disabled]="!formulario.valid" />
-            </li>
-            <li>
-              <input type="reset" value="Limpar" class="alt" />
-            </li>
-          </ul>
+          <div class="6u 12u$(xsmall)">
+            <label for="">Foto</label>
+            <input type="file" placeholder="Foto" formControlName="foto" (change)="handleFileInput($event.target.files)" />
+          </div>
+
+          <div class="12u$">
+            <ul class="actions">
+              <li>
+                <input type="button" value="Salvar" (click)="salvar(formulario)" [disabled]="!formulario.valid" />
+              </li>
+              <li>
+                <input type="reset" value="Limpar" class="alt" />
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 </section>

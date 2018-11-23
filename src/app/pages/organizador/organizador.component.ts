@@ -12,6 +12,8 @@ export class OrganizadorComponent implements OnInit {
   organizador: any
   formulario: FormGroup
   public router: Router
+  fileToUpload: File = null;
+
   constructor(router: Router,
     private formBuilder: FormBuilder,
     private organizadorService: OrganizadorService,
@@ -20,6 +22,9 @@ export class OrganizadorComponent implements OnInit {
     this.router = router;
   }
 
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
   ngOnInit() {
     this.formulario = this.formBuilder.group({
       id: this.formBuilder.control('0', ),
@@ -27,10 +32,11 @@ export class OrganizadorComponent implements OnInit {
       sede: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       presidente: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
       fundacao: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
+      imagem: this.formBuilder.control(''),
     })
 
     this.route.params.subscribe(paramsId => {
-      if (paramsId['id']) {
+      if (paramsId['id'] != '0') {
         this.get(paramsId['id'])
       }
     })
@@ -45,21 +51,28 @@ export class OrganizadorComponent implements OnInit {
         this.formulario.controls['sede'].setValue(this.organizador.sede);
         this.formulario.controls['presidente'].setValue(this.organizador.presidente);
         this.formulario.controls['fundacao'].setValue(this.organizador.fundacao);
+        this.formulario.controls['imagem'].setValue(this.organizador.imagem);
       }, err => {
         console.log("Erro ao Pegar Dados")
       })
   }
   salvar(formulario: FormGroup) {
-    let organizador = { 'nome': formulario.value.nome, 'sede': formulario.value.sede,'presidente': formulario.value.presidente, 'fundacao': formulario.value.fundacao }
+    const uploadData = new FormData();
+    uploadData.append('nome', formulario.value.nome)
+    uploadData.append('sede', formulario.value.sede)
+    uploadData.append('presidente', formulario.value.presidente)
+    uploadData.append('fundacao', formulario.value.fundacao)
+    uploadData.append('imagem', this.fileToUpload, this.fileToUpload.name)
+
     if (formulario.value.id == 0) {
-      this.organizadorService.save(organizador)
+      this.organizadorService.save(uploadData)
         .subscribe(retorno => {
           this.router.navigate(['/organizadores'])
         }, err => {
           console.log("Erro ao Salvar Dados")
         })
     } else {
-      this.organizadorService.update(formulario.value.id, organizador)
+      this.organizadorService.update(formulario.value.id, uploadData)
         .subscribe(retorno => {
           this.router.navigate(['/organizadores'])
         }, err => {

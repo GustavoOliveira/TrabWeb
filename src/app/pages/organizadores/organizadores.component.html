@@ -14,18 +14,11 @@
     </div>
 
     <div class="table-wrapper">
-      
-        <ng-template #customLoadingTemplate>
-            <h3>
-              Carregando...
-            </h3>
-          </ng-template>
-          <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
-      
       <table>
         <thead>
           <tr>
             <th>Id</th>
+            <th>Logo</th>
             <th>Nome</th>
             <th>Sede</th>
             <th>Presidente</th>
@@ -36,6 +29,7 @@
         <tbody>
           <tr *ngFor="let organizador of listaOrganizadores | filter : searchText">
             <td>{{organizador.id}}</td>
+            <td><img src={{organizador.imagem}} alt={{organizador.imagem}} class="tamanho img-thumbnail"></td>
             <td>{{organizador.nome}}</td>
             <td>{{organizador.sede}}</td>
             <td>{{organizador.presidente}}</td>
@@ -51,3 +45,9 @@
     </div>
   </div>
 </section>
+<ng-template #customLoadingTemplate>
+  <h3>
+    Carregando...
+  </h3>
+</ng-template>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>

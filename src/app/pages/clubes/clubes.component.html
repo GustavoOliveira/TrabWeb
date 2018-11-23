@@ -18,6 +18,7 @@
         <thead>
           <tr>
             <th>Id</th>
+            <th>Escudo</th>
             <th>Nome</th>
             <th>Criação</th>
             <th>Pontuação</th>
@@ -28,6 +29,7 @@
         <tbody>
           <tr *ngFor="let clube of listaClubes | filter : searchText">
             <td>{{clube.id}}</td>
+            <td><img src={{clube.escudo}} alt={{clube.escudo}} class="tamanho img-thumbnail"></td>
             <td>{{clube.nome}}</td>
             <td>{{clube.criacao}}</td>
             <td>{{clube.pontuacao}}</td>

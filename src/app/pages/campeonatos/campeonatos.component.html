@@ -18,6 +18,7 @@
           <thead>
             <tr>
               <th>Id</th>
+              <th>Imagem</th>
               <th>Nome</th>
               <th>Numeor de Times</th>
               <th>Organizador</th>
@@ -27,6 +28,7 @@
           <tbody>
             <tr *ngFor="let campeonato of listaCampeonatos | filter : searchText">
               <td>{{campeonato.id}}</td>
+              <td><img src={{campeonato.imagem}} alt={{campeonato.imagem}} class="tamanho img-thumbnail"></td>
               <td>{{campeonato.nome}}</td>
               <td>{{campeonato.numero_times}}</td>
               <td>{{campeonato.organizador}}</td>
